@@ -5,8 +5,8 @@ static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 0;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=6" };
-static const char dmenufont[]       = "monospace:size=8";
+static const char *fonts[]          = { "Ubuntu Mono:size=8" };
+static const char dmenufont[]       = "Ubuntu Mono:size=8";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#ffffff";
 static const char col_gray3[]       = "#ffffff";
@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "I", "II", "III", "IV", "V", "VI"};
+static const char *tags[] = { "I", "V", "03", "_", "S", "666"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -59,9 +59,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "terminator", NULL };
+static const char *termcmd[]  = { "terminology", NULL };
 static const char *screenshot[] = {"ssci", NULL};
-
+static const char *poweroff [] = {"poweroff", NULL};
 
 
 static Key keys[] = {
@@ -89,6 +89,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   {.v = poweroff}},
 	{ 0,				XK_Print,  spawn,{.v = screenshot}},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
